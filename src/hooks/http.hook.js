@@ -1,5 +1,6 @@
 import { useState, useCallback } from "react";
 import axios from "axios";
+import MD5 from "crypto-js/md5";
 
 export const useHttp = () => {
   const [loading, setLoading] = useState(false);
@@ -7,6 +8,10 @@ export const useHttp = () => {
 
   const request = useCallback(async (url, requestBody = null) => {
     setLoading(true);
+
+    const now = new Date().toLocaleDateString().split(".").reverse().join(""); // 19.12.2019
+    const stringPassword = "Valantis_" + now;
+    const authHash = MD5(stringPassword).toString();
 
     try {
       const response = await axios.post(
@@ -17,7 +22,7 @@ export const useHttp = () => {
         {
           headers: {
             "Content-Type": "application/json",
-            "X-Auth": "6b6cb1e55175afd4a78c2831ba83c4b9",
+            "X-Auth": authHash,
           },
         }
       );

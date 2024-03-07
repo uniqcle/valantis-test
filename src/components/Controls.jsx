@@ -9,34 +9,34 @@ const Wrapper = styled.div`
 const Controls = () => {
   return (
     <Wrapper>
-      <div class="btn-group">
+      <div className="btn-group">
         <button
           type="button"
-          class="btn btn-primary dropdown-toggle"
+          className="btn btn-primary dropdown-toggle"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
           Filter
         </button>
-        <ul class="dropdown-menu">
+        <ul className="dropdown-menu">
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Action
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Another action
             </a>
           </li>
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Something else here
             </a>
           </li>
 
           <li>
-            <a class="dropdown-item" href="#">
+            <a className="dropdown-item" href="#">
               Separated link
             </a>
           </li>

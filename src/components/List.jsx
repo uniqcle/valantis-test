@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import styled from "styled-components";
-import axios from "axios";
 
 import Spinner from "./Spinner";
+import ErrorMessage from "./ErrorMessage";
 import Pagination from "./Pagination";
 import useValantisService from "../services/ValantisService";
 import { paginate } from "../services/paginate";
@@ -70,9 +70,11 @@ const List = ({ offset }) => {
 
   const spinner = loading ? <Spinner /> : null;
   const items = !loading && renderItems(paginated);
+  const errorMessage = error ? <ErrorMessage /> : null;
 
   return (
     <Wrapper>
+      {errorMessage}
       {spinner}
       {items}
 
